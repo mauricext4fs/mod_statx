@@ -1,6 +1,14 @@
 # Object files
 *.o
 
+# OSX gcc
+*.libs
+
+# Apache module
+*.la
+*.lo
+*.slo
+
 # Libraries
 *.lib
 *.a
