@@ -63,7 +63,8 @@ static int statx_handler(request_rec *r)
     //ap_rputs("Connecting to redis...<br>\n", r);
 
     // Getting a redis context, if we fall here we return directly (for now)
-    redisContext = redisConnectWithTimeout((char*)"127.0.0.1", 6379, timeout);
+    //redisContext = redisConnectWithTimeout((char*)"127.0.0.1", 6379, timeout);
+    redisContext = redisConnectUnix((char*)"/tmp/redis.sock");
     if (redisContext == NULL || redisContext->err) {
         if (redisContext) {
             //ap_rputs("Connection error: ", r);
