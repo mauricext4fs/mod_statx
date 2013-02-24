@@ -3,7 +3,12 @@ mod_statx
 
 Redis backed apache module for direct access without high level programming language (direct access with HTTP request). Perfect for very high traffic statistic requirements.
 
-This is an experimental module and suport only "INCR" command on a localhost redis server running
+Currently handle up to 73 404 request a minute for INCR.
+PHP + redis (phpredis extension) : 52 572
+PHP + fsock directly: 53 028
+
+
+This is an experimental module and support only "INCR" command on a localhost redis server running
 on 6379 (which is default).
 
 To make it work you would need to do the following: 
