@@ -20,12 +20,16 @@ To make it work you would need to do the following:
    hiredis/sds.c
 4. Then if everything went good add the following line to httpd.conf:
 
+
 LoadModule statx_module       modules/mod_statx.so
 
-and an handler like: 
+5. Then set a location directive for activating the handler
 
-AddHandler statx-handler .statx
+<LocationMatch "/statxincr">
+    SetHandler statx-handler
+</LocationMatch>
 
-5. Hit (your web server and whatever name of file.statx?incr=keytoincrementinredis) : http://127.0.0.1:8080/vlad.statx?incr=new_key
+6. Graceful your apache.
+7. Hit (your web server and whatever name of statxincr?incr=keytoincrementinredis) : http://127.0.0.1:8080/statxincr?incr=new_key
 
 Enjoy!
