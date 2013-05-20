@@ -18,18 +18,17 @@ To make it work you would need to do the following:
 2. Unpack it under hiredis
 3. Compile mod_statx with: apxs -i -a -c mod_statx.c hiredis/hiredis.c hiredis/net.c
    hiredis/sds.c
+
 4. Then if everything went good add the following line to httpd.conf:
 
-
-LoadModule statx_module       modules/mod_statx.so
+    LoadModule statx_module       modules/mod_statx.so
 
 5. Then set a location directive for activating the handler
 
-<code>
-<LocationMatch "/statxincr">
-    SetHandler statx-handler
-</LocationMatch>
-</code>
+    <LocationMatch "/statxincr">
+        SetHandler statx-handler
+    </LocationMatch>
+
 6. Graceful your apache.
 7. Hit (your web server and whatever name of statxincr?incr=keytoincrementinredis) : http://127.0.0.1:8080/statxincr?incr=new_key
 
