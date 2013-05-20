@@ -25,10 +25,11 @@ LoadModule statx_module       modules/mod_statx.so
 
 5. Then set a location directive for activating the handler
 
+<code>
 <LocationMatch "/statxincr">
     SetHandler statx-handler
 </LocationMatch>
-
+</code>
 6. Graceful your apache.
 7. Hit (your web server and whatever name of statxincr?incr=keytoincrementinredis) : http://127.0.0.1:8080/statxincr?incr=new_key
 
