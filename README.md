@@ -14,9 +14,11 @@ on /tmp/redis.sock.
 
 To make it work you would need to do the following: 
 
-Compile it with: /Users/mcourtois/apache/bin/apxs -i -a -c mod_statx.c hiredis/hiredis.c hiredis/net.c hiredis/sds.c
-
-Then if everything went good add the following line to httpd.conf:
+1. Download the latest distribution of hiredis found at: https://github.com/redis/hiredis
+2. Unpack it under hiredis
+3. Compile mod_statx with: apxs -i -a -c mod_statx.c hiredis/hiredis.c hiredis/net.c
+   hiredis/sds.c
+4. Then if everything went good add the following line to httpd.conf:
 
 LoadModule statx_module       modules/mod_statx.so
 
@@ -24,6 +26,6 @@ and an handler like:
 
 AddHandler statx-handler .statx
 
-Hit (your web server and whatever name of file.statx?incr=keytoincrementinredis) : http://127.0.0.1:8080/vlad.statx?incr=new_key
+5. Hit (your web server and whatever name of file.statx?incr=keytoincrementinredis) : http://127.0.0.1:8080/vlad.statx?incr=new_key
 
 Enjoy!
